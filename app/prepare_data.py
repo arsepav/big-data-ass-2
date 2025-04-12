@@ -11,17 +11,14 @@ spark = SparkSession.builder \
 
 
 df = spark.read.parquet("/a.parquet")
-n = 1000
+n = 4000
 df = df.select(['id', 'title', 'text']).sample(fraction=100 * n / df.count(), seed=0).limit(n)
 
 
 def create_doc(row):
     filename = "data/" + sanitize_filename(str(row['id']) + "_" + row['title']).replace(" ", "_") + ".txt"
     with open(filename, "w") as f:
-        f.write(row['text'])
+        f.write(f"{row['id']}\t{row['title']}\t{row['text']}")
 
 
 df.foreach(create_doc)
-
-
-# df.write.csv("/index/data", sep = "\t")
