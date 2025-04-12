@@ -22,3 +22,5 @@ def create_doc(row):
 
 
 df.foreach(create_doc)
+
+print("BIG_DATA_APP: data prepared")

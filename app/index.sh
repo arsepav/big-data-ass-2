@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "start indexingg!!..."
+echo "BIG_DATA_APP: start indexingg!!..."
 
 hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
     -input /data \
@@ -18,8 +18,8 @@ hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
     -file /app/mapreduce/mapper2.py \
     -file /app/mapreduce/reducer2.py
 
-echo "load to cassandra..."
+echo "BIG_DATA_APP: load to cassandra..."
 
 python3 app.py
 
-echo "Indexing completed successfully!"
+echo "BIG_DATA_APP: Indexing completed successfully!"

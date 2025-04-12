@@ -36,5 +36,5 @@ for line in sys.stdin:
         print(f"{term}\t{total}")
         
     except Exception as e:
-        logging.error(f"Critical error: {e}")
+        logging.error(f"error: {e}")
         sys.exit(1)
