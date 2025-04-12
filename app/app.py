@@ -110,4 +110,4 @@ for line in proc.stdout:
 
 proc.wait()
 
-print("loaded to cassandra!!!!!!!")
+print("BIG_DATA_APP: loaded to cassandra!!!!!!!")

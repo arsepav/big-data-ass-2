@@ -37,5 +37,5 @@ for line in sys.stdin:
             print(f"{word}#{doc_id}\t1")
         
     except Exception as e:
-        logging.error(f"Critical error: {e}")
+        logging.error(f"error: {e}")
         sys.exit(1)

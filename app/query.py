@@ -12,6 +12,8 @@ def main():
         .appName("SearchEngineQuery") \
         .config("spark.cassandra.connection.host", "cassandra-server") \
         .getOrCreate()
+    
+    spark.sparkContext.setLogLevel("ERROR") 
 
     total_docs = 4000
 
@@ -41,19 +43,13 @@ def main():
         .select("doc_id", "title")
 
     results = scores.join(documents, on="doc_id")
-    
-    top_docs = scores.orderBy(col("score").desc()).limit(10)
-    
-    for row in top_docs.select("doc_id").collect():
-        print("doc: ", row["doc_id"])
-        
 
     top_docs = results.orderBy(col("score").desc()).limit(10)
 
-    print("Search result:")
+    print("BIG_DATA_APP: Search result:")
 
     for row in top_docs.select("doc_id", "title").collect():
-        print(f"doc: {row['doc_id']}, title: {row['title']}")
+        print(f"BIG_DATA_APP: doc: {row['doc_id']}, title: {row['title']}")
     
     spark.stop()
 
