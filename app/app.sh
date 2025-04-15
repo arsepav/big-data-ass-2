@@ -16,13 +16,13 @@ pip install -r requirements.txt
 venv-pack -o .venv.tar.gz
 
 # Collect data
-bash prepare_data.sh 2>&1 | grep "BIG_DATA_APP"
+bash prepare_data.sh
 
 
 # Run the indexer
-bash index.sh 2>&1 | grep "BIG_DATA_APP"
+bash index.sh
 
 # Run the ranker
-bash search.sh "machine learning" 2>&1 | grep "BIG_DATA_APP"
+bash search.sh "machine learning"
 
 exec bash
