@@ -15,6 +15,7 @@ hdfs dfs -put -f a.parquet / && \
     spark-submit prepare_data.py && \
     echo "BIG_DATA_APP: Putting data to hdfs" && \
     hdfs dfs -put data / && \
+    spark-submit prepare_index_rdd.py && \
     hdfs dfs -ls /data && \
     hdfs dfs -ls /index/data && \
     echo "BIG_DATA_APP: done data preparation!"

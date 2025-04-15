@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "This script will include commands to search for documents given the query using Spark RDD"
 
 
 source .venv/bin/activate

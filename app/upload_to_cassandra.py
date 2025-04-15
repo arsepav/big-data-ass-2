@@ -110,4 +110,7 @@ for line in proc.stdout:
 
 proc.wait()
 
+subprocess.run(["hdfs", "dfs", "-rm", "-r", "/tmp/index/pipeline1"])
+subprocess.run(["hdfs", "dfs", "-rm", "-r", "/tmp/index/pipeline2"])
+
 print("BIG_DATA_APP: loaded to cassandra!!!!!!!")

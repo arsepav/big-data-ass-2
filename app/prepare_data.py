@@ -18,7 +18,8 @@ df = df.select(['id', 'title', 'text']).sample(fraction=100 * n / df.count(), se
 def create_doc(row):
     filename = "data/" + sanitize_filename(str(row['id']) + "_" + row['title']).replace(" ", "_") + ".txt"
     with open(filename, "w") as f:
-        f.write(f"{row['id']}\t{row['title']}\t{row['text']}")
+        
+        f.write(f"{row['text']}")
 
 
 df.foreach(create_doc)
