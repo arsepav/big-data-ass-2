@@ -28,10 +28,12 @@ def tokenize(text):
 for line in sys.stdin:
     try:
         parts = line.strip().split("\t", maxsplit=3)
+        print(f"parts: {len(parts)}")
         if len(parts) < 3:
             continue
         
         doc_id, doc_title, doc_text = parts[0], parts[1], parts[2]
+        logging.error(f"doc_text: {doc_text}")
         
         for word in tokenize(doc_text):
             print(f"{word}#{doc_id}\t1")
